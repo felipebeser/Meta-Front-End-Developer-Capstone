@@ -1,5 +1,6 @@
 import React from 'react'
 import NavBar from './NavBar'
+import './Header.css'
 import Logo from '.././assets/Logo.svg'
 export default function Header() {
   return (

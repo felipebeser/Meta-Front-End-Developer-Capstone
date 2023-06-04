@@ -1,13 +1,15 @@
 import React from 'react'
+import './NavBar.css'
 import NavItem from './NavItem'
 
+
 const links = [
-  {link: "Home", url: "/index"},
-  {link: "About", url: "/index"},
-  {link: "Menu", url: "/index"},
-  {link: "Reservations", url: "/index"},
-  {link: "Order Online", url: "/index"},
-  {link: "Login", url: "/index"},
+  {link: "Home", url: "/"},
+  {link: "About", url: "/#aboutme"},
+  {link: "Menu", url: "/under-construction"},
+  {link: "Reservations", url: "/reservations"},
+  {link: "Order Online", url: "/under-construction"},
+  {link: "Login", url: "/under-construction"},
 ]
 export default function NavBar() {
   return (

@@ -1,0 +1,28 @@
+.testimonials-container{
+  padding: 5%;
+}
+
+.testimonials-container-info {
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+
+.testimonials-item-container {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+  padding: 1rem;
+  border-radius: 1rem;
+  gap:1rem;
+}
+
+.profile {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.profile img {
+  border-radius: 50%;
+}
