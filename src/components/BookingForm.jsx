@@ -1,5 +1,5 @@
 import './BookingForm.css';
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {validateDate} from ".././utils/utils";
 import { useNavigate } from 'react-router-dom';
 
@@ -12,10 +12,6 @@ function BookingForm() {
 
  const nav = useNavigate();
 
- useEffect(() => {
-  console.log(date)
-  console.log(validateDate(date))
- },[date])
  const getIsFormValid = () => {
    return (
      validateDate(date) &&
@@ -28,7 +24,7 @@ function BookingForm() {
 
  const handleSubmit = (e) => {
    e.preventDefault();
-   nav('/confirmed-booking')
+   nav('/confirmed-booking', { date: date, time: time, guests : guests, occasion : occasion })
  };
 
  return (
@@ -37,9 +33,10 @@ function BookingForm() {
        <fieldset>
          <h2>Book a table</h2>
          <div className="Field">
-           <label>Date<sup>*</sup>
+           <label htmlFor='date'>Date<sup>*</sup>
            </label>
            <input
+           id='date'
               type='date'
              value={date}
              onChange={(e) => {
@@ -49,14 +46,15 @@ function BookingForm() {
            />
          </div>
          <div className="Field">
-           <label>Time</label>
-           <input
-             value={time}
-             onChange={(e) => {
-               setTime(e.target.value);
-             }}
-             placeholder="time"
-           />
+           <label htmlFor="res-time">Time</label>
+           <select id="res-time " value={time} onChange={(e) => setTime(e.target.value)}>
+              <option>17:00</option>
+              <option>18:00</option>
+              <option>19:00</option>
+              <option>20:00</option>
+              <option>21:00</option>
+              <option>22:00</option>
+            </select>
          </div>
          <div className="Field">
            <label>Number of guests<sup>*</sup>
@@ -74,11 +72,11 @@ function BookingForm() {
            <label>
              Occasion <sup>*</sup>
            </label>
-           <select value={occasion} onChange={(e) => setOccasion(e.target.value)}> 
-             <option value="role">Occasion</option> 
-             <option value="individual">Birthday</option> 
-             <option value="business">Anniversary</option> 
-           </select> 
+           <select value={occasion} onChange={(e) => setOccasion(e.target.value)}>
+             <option value="role">Occasion</option>
+             <option value="individual">Birthday</option>
+             <option value="business">Anniversary</option>
+           </select>
          </div>
          <button type="submit" disabled={!getIsFormValid()}>
            Make your reservation

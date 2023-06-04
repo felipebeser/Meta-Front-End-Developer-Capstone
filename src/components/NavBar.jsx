@@ -16,7 +16,7 @@ export default function NavBar() {
     <nav>
       <ul>
         {links.map((item) =>  (
-          <NavItem link={item.link} url={item.url}/>
+          <NavItem key={item.link} link={item.link} url={item.url}/>
         ))}
       </ul>
     </nav>
